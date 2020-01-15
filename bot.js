@@ -37,7 +37,7 @@ client.on('message', message => {
         case "avatar":
             client.commands.get('avatar').execute(message, args);
         break;
-        case "test": message.channel.send("Alive");
+        case "test": message.channel.send("Alive"); break;
     }
 });
 
