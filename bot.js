@@ -41,6 +41,7 @@ client.on('message', message => {
             embed.setDescription("Bot Details");
             embed.addField("Uptime: ", client.uptime);
             embed.addField("Ping: ", client.ping);
+            message.channel.send({embed});
         break;
     }
 });
