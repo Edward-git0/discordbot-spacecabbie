@@ -16,7 +16,7 @@ client.on('ready', () => {
     client.channels.get('667088501895856178').send("Updated!");
 
     try {
-        const mongoose = require('mongoose.js');
+        const mongoose = require('./mongoose');
         const dbOptions = {
             useNewUrlParser: true,
             autoIndex: false,
