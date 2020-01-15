@@ -20,7 +20,7 @@ module.exports = {
             client.channels.get('667088501895856178').send("Connected!");
         })
 
-        mongoose.connect.on('err', () => {
+        mongoose.connection.on('err', () => {
             client.channels.get('667088501895856178').send("Error connecting.");
         })
     }
