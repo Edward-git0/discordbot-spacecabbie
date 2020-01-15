@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { prefix, token, version } = require('./config.json');
+const { prefix, token, version, status } = require('./config.json');
 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -40,7 +40,7 @@ client.on('message', message => {
             message.channel.send("Version: " + version);
         break;
         case "status": 
-            message.channel.send("Alive"); 
+            message.channel.send(status); 
         break;
         case "bot":
             let uptime = client.uptime / 1000;
