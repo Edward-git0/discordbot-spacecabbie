@@ -17,7 +17,7 @@ for (const file of moduleFiles) {
     client.modules.set(_module.name, _module);
 } */
 
-client.mongoose = require('./utils/mongoose');
+client.mongoose = require('./utils/mongoose.js');
 
 client.on('ready', () => {
     console.log("Update");
