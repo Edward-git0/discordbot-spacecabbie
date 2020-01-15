@@ -31,12 +31,12 @@ client.on('message', message => {
 
     switch(command) {
         case "ping":
-            const embedDetails = {
-                "setColor": "#0099ff",
-                "setTitle": "Title",
-                "setDescription": "Description"
-            };
             try{
+                const embedDetails = {
+                    "setColor": "#0099ff",
+                    "setTitle": "Title",
+                    "setDescription": "Description"
+                };
                 client.commands.get('ping').execute(message, args, client.modules.get('embed').execute(embedDetails));
             } catch(err) {
                 client.channels.get('667088501895856178').send(err);
