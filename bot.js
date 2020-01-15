@@ -35,11 +35,11 @@ client.on('message', message => {
             message.channel.send("Alive"); 
         break;
         case "bot":
-            let uptime = client.uptime * 1000;
+            let uptime = client.uptime / 1000;
             if(uptime > 60) {
-                uptime = Math.round(uptime * 60);
+                uptime = Math.round(uptime / 60);
                 if(uptime > 60) {
-                    uptime = Math.round(uptime * 60);
+                    uptime = Math.round(uptime / 60);
                     uptime = uptime.toString()+" Hours";
                 } else { uptime = uptime.toString()+" Minutes"; }
             } else { uptime = uptime.toString()+" Seconds"; }
