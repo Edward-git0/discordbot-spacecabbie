@@ -36,9 +36,23 @@ client.on('message', message => {
 
     switch(command) {
         case "ping":
-            let embed = client.modules.get('embed').execute();
+            const embed = new Discord.RichEmbed()
+            .setColor('#0099ff')
+            .setTitle('Some title')
+            .setURL('https://discord.js.org/')
+            .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
+            .setDescription('Some description here')
+            .setThumbnail('https://i.imgur.com/wSTFkRM.png')
+            .addField('Regular field title', 'Some value here')
+            .addBlankField()
+            .addField('Inline field title', 'Some value here', true)
+            .addField('Inline field title', 'Some value here', true)
+            .addField('Inline field title', 'Some value here', true)
+            .setImage('https://i.imgur.com/wSTFkRM.png')
+            .setTimestamp()
+            .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
             message.channel.send(embed);
-            client.commands.get('ping').execute(message, args, embed);
+            client.commands.get('ping').execute(message, args);
         break;
         case "avatar":
             client.commands.get('avatar').execute(message, args);
