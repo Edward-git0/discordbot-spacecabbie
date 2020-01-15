@@ -20,8 +20,8 @@ for (const file of moduleFiles) {
 }
 
 client.on('ready', () => {
-    console.log("Ready");
-    client.channels.get('667088501895856178').send("Ready!");
+    console.log("Update");
+    client.channels.get('667088501895856178').send("Updated!");
     client.setActivity("hi");
 });
 
