@@ -40,7 +40,7 @@ client.on('message', message => {
             embed.setTitle("Space Caddie");
             embed.setDescription("Bot Details");
             embed.addField("Uptime: ", client.uptime);
-            embed.addField("Ping: ", client.ping);
+            embed.addField("Ping: ", client.ping+"ms");
             embed.setThumbnail("https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
             embed.setFooter("Space Cabbie made by Edward", "https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
 
