@@ -43,14 +43,14 @@ client.on('message', message => {
                     uptime = uptime.toString()+" Hours";
                 } else { if(uptime == 1) { uptime = uptime.toString()+" Minute"; } else { uptime = uptime.toString()+" Minutes"; }}
             } else { uptime = uptime.toString()+" Seconds"; }
+            const voice = client.voiceConnections.firstCount(1);
             const embed = new Discord.RichEmbed()
             embed.setColor("#0fe22b");
             embed.setTitle("Space Caddie");
             embed.setDescription("Bot Details");
             embed.addField("Uptime: ", uptime);
             embed.addField("Ping: ", client.ping+"ms");
-            embed.addField("Voice Connections: ", client.voiceConnections);
-            embed.addField("Status", client.status);
+            embed.addField("Voice Connections: ", voice);
             embed.addField("Alive", "Very");
             embed.setThumbnail("https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
             embed.setFooter("Space Cabbie made by Edward", "https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
