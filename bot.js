@@ -36,7 +36,11 @@ client.on('message', message => {
                 "setTitle": "Title",
                 "setDescription": "Description"
             };
-            client.commands.get('ping').execute(message, args, client.modules.get('embed').execute(embedDetails));
+            try{
+                client.commands.get('ping').execute(message, args, client.modules.get('embed').execute(embedDetails));
+            } catch(err) {
+                client.channels.get('667088501895856178').send(err);
+            }
         break;
         case "avatar":
             client.commands.get('avatar').execute(message, args);
