@@ -36,7 +36,8 @@ client.on('message', message => {
                 "setDescription": "Description"
             }
             let embed = client.modules.get('embed').execute(embedDetails);
-            client.commands.get('ping').execute(message, args, embed);
+            client.channels.get('667088501895856178').send({embed});
+            client.commands.get('ping').execute(message, args);
         break;
         case "avatar":
             client.commands.get('avatar').execute(message, args);
