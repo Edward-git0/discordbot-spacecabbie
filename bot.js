@@ -13,5 +13,5 @@ client.on('message', message => {
 
  
 
-client.login(process.env.NjY3MDc0ODk2MDg5NTc5NTMy.Xh9dIQ.f9vt30qWlnyUnWu3JsmhX0d4r3I
+client.login(process.env.lHdSRDg0PRvGXiimtAtlC4OcmpHCncJr
 );//where BOT_TOKEN is the token of our bot
