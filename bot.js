@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = '.';
+const { prefix, token } = require('./config.json');
 
 client.on('ready', () => {
     console.log("Ready");
@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
-    const args = message.content.slice(prefix.length).split(' ');
+    const args = message.content.slice(prefix.length).split('/ +/');
     const command = args.shift().toLowerCase();
 
     switch(command) {
@@ -17,7 +17,7 @@ client.on('message', message => {
         break;
         case "avatar":
             if (!message.mentions.users.size) {
-                return message.channel.send(`Your avatar: <${message.author.displayAvatarURL}>`);
+                return message.channel.send(`Your avatar: ${message.author.displayAvatarURL}`);
             }
         break;
     }
@@ -25,4 +25,4 @@ client.on('message', message => {
 
  
 
-client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
+client.login(token);//BOT_TOKEN is the Client Secret
