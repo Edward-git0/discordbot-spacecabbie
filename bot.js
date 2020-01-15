@@ -34,6 +34,14 @@ client.on('message', message => {
         case "status": 
             message.channel.send("Alive"); 
         break;
+        case "bot":
+            const embed = new Discord.RichEmbed()
+            embed.setColor("#0fe22b");
+            embed.setTitle("Space Caddie");
+            embed.setDescription("Bot Details");
+            embed.addField("Uptime: ", client.uptime);
+            embed.addField("Ping: ", client.ping);
+        break;
     }
 });
 
