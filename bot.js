@@ -6,15 +6,22 @@ const { prefix, token } = require('./config.json');
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
+client.modules = new Discord.Collection();
+const moduleFiles = fs.readdirSync('./modules').filter(file => file.endsWith('js'));
+
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
 
+for (const file of moduleFiles) {
+    const module = require(`./modules/${file}`);
+    client.modules.set(module.name, module);
+}
+
 client.on('ready', () => {
     console.log("Update");
     client.channels.get('667088501895856178').send("Updated!");
-    client.setActivity("hi");
 });
 
 client.on('message', message => {
@@ -24,7 +31,17 @@ client.on('message', message => {
 
     switch(command) {
         case "ping":
-            client.commands.get("ping").execute(message, args);
+            try{
+                const embedDetails = {
+                    "setColor": "#0099ff",
+                    "setTitle": "Title",
+                    "setDescription": "Description"
+                };
+                const embed = client.modules.get('embed').execute(embedDetails);
+                client.commands.get('ping').execute(message, args, embed);
+            } catch(err) {
+                client.channels.get('667088501895856178').send(err);
+            }
         break;
         case "avatar":
             client.commands.get('avatar').execute(message, args);
