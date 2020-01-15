@@ -23,13 +23,7 @@ client.on('message', message => {
 
     switch(command) {
         case "ping":
-            try{
-            client.commands.get('ping').execute(message, args).then((msg) => {
-                msg.edit(client.ping+'\n'+msg);
-            }) } catch(err) {
-                message.channel.send(err);
-            }
-
+            client.commands.get('ping').execute(message, args);
         break;
         case "avatar":
             client.commands.get('avatar').execute(message, args);
