@@ -47,4 +47,4 @@ client.on('message', message => {
 
  
 
-client.login(token);//BOT_TOKEN is the Client Secret
+client.login(token);
