@@ -41,7 +41,7 @@ client.on('message', message => {
                 if(uptime > 60) {
                     uptime = Math.round(uptime / 60);
                     uptime = uptime.toString()+" Hours";
-                } else { uptime = uptime.toString()+" Minutes"; }
+                } else { if(uptime == 1) { uptime = uptime.toString()+" Minute"; } else { uptime = uptime.toString()+" Minutes"; }}
             } else { uptime = uptime.toString()+" Seconds"; }
             const embed = new Discord.RichEmbed()
             embed.setColor("#0fe22b");
