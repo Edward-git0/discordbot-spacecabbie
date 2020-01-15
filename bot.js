@@ -34,7 +34,7 @@ client.on('message', message => {
                 "setColor": "#0099ff",
                 "setTitle": "Title",
                 "setDescription": "Description"
-            }
+            };
             client.commands.get('ping').execute(message, args, client.modules.get('embed').execute(embedDetails));
         break;
         case "avatar":
