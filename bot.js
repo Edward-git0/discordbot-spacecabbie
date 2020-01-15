@@ -1,7 +1,7 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { prefix, token, version } = require('./config.json');
+const { prefix, token, version, guild_id } = require('./config.json');
 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -44,9 +44,9 @@ client.on('message', message => {
                 } else { if(uptime == 1) { uptime = uptime.toString()+" Minute"; } else { uptime = uptime.toString()+" Minutes"; }}
             } else { uptime = uptime.toString()+" Seconds"; }
             const embed = new Discord.RichEmbed()
-            if(!client.voiceChannel) {
+            if(!client.guilds.get(guild_id).voiceChannel) {
                 const voice = "Not in voice";
-            } else { const voice = client.voiceChannel; }
+            } else { const voice = client.guilds.get(guild_id).voiceChannel; }
             embed.setColor("#0fe22b");
             embed.setTitle("Space Caddie");
             embed.setDescription("Bot Details");
