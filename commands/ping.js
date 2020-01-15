@@ -2,6 +2,7 @@ module.exports = {
 	name: 'ping',
 	description: 'Ping!',
 	execute(message, args) {
-        message.reply('Pong! ('+args.substring(1,6)+'ms)')
+        const ping = tostring(args).substring(1,6);
+        message.reply('Pong! ('+ping+'ms)')
 	},
 };
