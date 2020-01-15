@@ -18,7 +18,7 @@
 module.exports = {
     name: 'embed',
     description: 'embed',
-    execute(args) {
+    execute() {
         const embed = new Discord.RichEmbed()
         .setColor('#0099ff')
         .setTitle('Some title')

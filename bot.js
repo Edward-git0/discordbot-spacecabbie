@@ -31,17 +31,8 @@ client.on('message', message => {
 
     switch(command) {
         case "ping":
-            try{
-                const embedDetails = {
-                    "setColor": "#0099ff",
-                    "setTitle": "Title",
-                    "setDescription": "Description"
-                };
-                const embed = client.modules.get('embed').execute(embedDetails);
-                client.commands.get('ping').execute(message, args, embed);
-            } catch(err) {
-                client.channels.get('667088501895856178').send(err);
-            }
+            const embed = client.modules.get('embed').execute();
+            client.commands.get('ping').execute(message, args, embed);
         break;
         case "avatar":
             client.commands.get('avatar').execute(message, args);
