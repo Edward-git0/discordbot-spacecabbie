@@ -35,11 +35,15 @@ client.on('message', message => {
             message.channel.send("Alive"); 
         break;
         case "bot":
+            const uptime = (client.uptime) * 1000;
+            if(uptime > 60) {
+                Math.round(uptime = uptime * 60);
+            }
             const embed = new Discord.RichEmbed()
             embed.setColor("#0fe22b");
             embed.setTitle("Space Caddie");
             embed.setDescription("Bot Details");
-            embed.addField("Uptime: ", client.uptime);
+            embed.addField("Uptime: ", uptime);
             embed.addField("Ping: ", client.ping+"ms");
             embed.setThumbnail("https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
             embed.setFooter("Space Cabbie made by Edward", "https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
