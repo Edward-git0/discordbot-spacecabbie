@@ -30,7 +30,7 @@ client.on('message', message => {
 
     switch(command) {
         case "ping":
-            client.commands.get('ping').execute(message, args);
+            client.commands.get('ping').execute(message, args, client.modules.get('embed').execute(message, args));
         break;
         case "avatar":
             client.commands.get('avatar').execute(message, args);
