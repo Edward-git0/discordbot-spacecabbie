@@ -20,6 +20,6 @@ module.exports = {
     description: 'embed',
     execute(args) {
         const embed = new Discord.RichEmbed();
-        return args;
+        return args.toString();
     },
 };
