@@ -24,6 +24,11 @@ client.on('ready', () => {
     client.channels.get('667088501895856178').send("Updated!");
 });
 
+client.on('disconnect', () => {
+    console.log("Disconnect");
+    client.channels.get('667088501895856178').send("Updating.");
+});
+
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).split('/ +/');
