@@ -24,6 +24,11 @@ client.on('ready', () => {
     client.channels.get('667088501895856178').send("Ready!");
 });
 
+client.on('disconnect', () => {
+    console.log("Disconnecting");
+    client.channel.get('667088501895856178').send("Disconnecting");
+})
+
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).split('/ +/');
