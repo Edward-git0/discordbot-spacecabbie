@@ -28,7 +28,12 @@ client.on('message', message => {
         case "avatar":
             client.commands.get('avatar').execute(message, args);
         break;
-        case "test": message.channel.send("Alive"); break;
+        case "version":
+            message.channel.send("Version: " + version);
+        break;
+        case "status": 
+            message.channel.send("Alive"); 
+        break;
     }
 });
 
