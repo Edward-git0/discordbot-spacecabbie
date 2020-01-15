@@ -34,6 +34,9 @@ client.on('message', message => {
         case "status": 
             message.channel.send("Alive"); 
         break;
+        default:
+            message.channel.send("Invalid command");
+        break;
     }
 });
 
