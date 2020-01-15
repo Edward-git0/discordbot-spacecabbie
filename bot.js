@@ -24,8 +24,8 @@ client.on('ready', () => {
     client.channels.get('667088501895856178').send("Updated!");
 });
 
-client.on('disconnect', () => {
-    console.log("Disconnect");
+client.on('reconnecting', () => {
+    console.log("reconnecting");
     client.channels.get('667088501895856178').send("Updating.");
 });
 
