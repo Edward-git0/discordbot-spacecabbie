@@ -40,9 +40,9 @@ client.on('message', message => {
                 uptime = Math.round(uptime * 60);
                 if(uptime > 60) {
                     uptime = Math.round(uptime * 60);
-                    uptime =+ "Hours";
-                } else { uptime =+ "Minutes"; }
-            } else { uptime =+ "Seconds"; }
+                    uptime = uptime.toString()+" Hours";
+                } else { uptime = uptime.toString()+" Minutes"; }
+            } else { uptime = uptime.toString()+" Seconds"; }
             const embed = new Discord.RichEmbed()
             embed.setColor("#0fe22b");
             embed.setTitle("Space Caddie");
