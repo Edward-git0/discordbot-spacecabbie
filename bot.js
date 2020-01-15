@@ -36,23 +36,12 @@ client.on('message', message => {
 
     switch(command) {
         case "ping":
-            const embed = new Discord.RichEmbed()
-            .setColor('#0099ff')
-            .setTitle('Some title')
-            .setURL('https://discord.js.org/')
-            .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-            .setDescription('Some description here')
-            .setThumbnail('https://i.imgur.com/wSTFkRM.png')
-            .addField('Regular field title', 'Some value here')
-            .addBlankField()
-            .addField('Inline field title', 'Some value here', true)
-            .addField('Inline field title', 'Some value here', true)
-            .addField('Inline field title', 'Some value here', true)
-            .setImage('https://i.imgur.com/wSTFkRM.png')
-            .setTimestamp()
-            .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-            client.channels.get('667088501895856178').send({embed});
-            client.commands.get('ping').execute(message, args);
+            const embedDetails = {
+                "setTitle": "Title",
+                "setDescription": "Description"
+            }
+            const embed = client.modules.get('embed').execute(embedDetails);
+            client.commands.get('ping').execute(message, args, embed);
         break;
         case "avatar":
             client.commands.get('avatar').execute(message, args);
