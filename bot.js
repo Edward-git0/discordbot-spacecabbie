@@ -20,8 +20,7 @@ for (const file of moduleFiles) {
 }
 
 client.on('ready', () => {
-    const channel = member.guild.channels.find(ch => ch.Name === 'space-caddie');
-    channel.send("Ready!");
+    client.sendMessage("667088501895856178", "Ready!");
 });
 
 client.on('message', message => {
