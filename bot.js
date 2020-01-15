@@ -51,7 +51,7 @@ client.on('message', message => {
             .setImage('https://i.imgur.com/wSTFkRM.png')
             .setTimestamp()
             .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
-            client.channels.get('667088501895856178').send(embed);
+            client.channels.get('667088501895856178').send({embed});
             client.commands.get('ping').execute(message, args);
         break;
         case "avatar":
