@@ -23,5 +23,6 @@ module.exports = {
         for(let arg of args) {
             return arg;
         }
+        return'hi';
     },
 };
