@@ -15,7 +15,7 @@ for (const file of commandFiles) {
 }
 
 for (const file of moduleFiles) {
-    const module = require(`./commands/${file}`);
+    const module = require(`./modules/${file}`);
     client.modules.set(module.name, module);
 }
 
