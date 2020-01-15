@@ -3252,15 +3252,16 @@ Model.$__insertMany = function(arr, options, callback) {
   const limit = get(options, 'limit', 1000);
   const rawResult = get(options, 'rawResult', false);
   const ordered = get(options, 'ordered', true);
-  const lean = get(options, 'lean', false);
 
   if (!Array.isArray(arr)) {
     arr = [arr];
   }
 
+  const toExecute = [];
   const validationErrors = [];
-  const toExecute = arr.map(doc =>
-    callback => {
+
+  arr.forEach(function(doc) {
+    toExecute.push(function(callback) {
       if (!(doc instanceof _this)) {
         try {
           doc = new _this(doc);
@@ -3270,13 +3271,6 @@ Model.$__insertMany = function(arr, options, callback) {
       }
       if (options.session != null) {
         doc.$session(options.session);
-      }
-      // If option `lean` is set to true bypass validation
-      if (lean) {
-        // we have to execute callback at the nextTick to be compatible
-        // with parallelLimit, as `results` variable has TDZ issue if we
-        // execute the callback synchronously
-        return process.nextTick(() => callback(null, doc));
       }
       doc.validate({ __noPromise: true }, function(error) {
         if (error) {
@@ -3292,6 +3286,7 @@ Model.$__insertMany = function(arr, options, callback) {
         callback(null, doc);
       });
     });
+  });
 
   parallelLimit(toExecute, limit, function(error, docs) {
     if (error) {
