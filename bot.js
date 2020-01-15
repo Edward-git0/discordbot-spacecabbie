@@ -35,18 +35,7 @@ client.on('message', message => {
                 "setTitle": "Title",
                 "setDescription": "Description"
             }
-            const embed = new Discord.RichEmbed()
-            .setColor('#0099ff')
-            .setTitle('Some title')
-            .setURL('https://discord.js.org/')
-            .setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-            .setDescription('Some description here')
-            .setThumbnail('https://i.imgur.com/wSTFkRM.png')
-            .addField('Regular field title', 'Some value here')
-            .addBlankField()
-            .setImage('https://i.imgur.com/wSTFkRM.png')
-            .setTimestamp()
-            .setFooter('Some footer text here', 'https://i.imgur.com/wSTFkRM.png');
+            const embed = client.modules.get('embed').execute();
             client.channels.get('667088501895856178').send({embed});
             client.commands.get('ping').execute(message, args);
         break;
