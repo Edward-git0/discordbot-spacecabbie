@@ -6,9 +6,17 @@ const { prefix, token } = require('./config.json');
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
+client.modules = new Discord.Collection();
+const moduleFiles = fs.readdirSync('./modules').filter(file => file.endsWith('js'));
+
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
+}
+
+for (const file of moduleFiles) {
+    const module = require(`./commands/${file}`);
+    client.modules.set(module.name, module);
 }
 
 client.on('ready', () => {

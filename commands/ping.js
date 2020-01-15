@@ -2,6 +2,6 @@ module.exports = {
 	name: 'ping',
 	description: 'Ping!',
 	execute(message, args) {
-		message.channel.send('Pong.');
+		message.reply(client.modules.get('embed').execute(message, args));
 	},
 };
