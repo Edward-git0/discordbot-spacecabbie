@@ -1,11 +1,10 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { prefix, token, version, guild_id } = require('./config.json');
+const { prefix, token, version } = require('./config.json');
 
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-const guild = client.guilds.get(guild_id);
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
@@ -45,15 +44,11 @@ client.on('message', message => {
                 } else { if(uptime == 1) { uptime = uptime.toString()+" Minute"; } else { uptime = uptime.toString()+" Minutes"; }}
             } else { uptime = uptime.toString()+" Seconds"; }
             const embed = new Discord.RichEmbed()
-            if(!guild.voiceChannel) {
-                const voice = "Not in voice";
-            } else { const voice = guild.voiceChannel; }
             embed.setColor("#0fe22b");
             embed.setTitle("Space Caddie");
             embed.setDescription("Bot Details");
             embed.addField("Uptime: ", uptime);
             embed.addField("Ping: ", client.ping+"ms");
-            embed.addField("Voice Channel", voice);
             embed.addField("Status", "Alive");
             embed.setThumbnail("https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
             embed.setFooter("Space Cabbie made by Edward", "https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
