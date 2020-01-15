@@ -35,10 +35,14 @@ client.on('message', message => {
             message.channel.send("Alive"); 
         break;
         case "bot":
-            const uptime = (client.uptime) * 1000;
+            let uptime = client.uptime * 1000;
             if(uptime > 60) {
-                Math.round(uptime = uptime * 60);
-            }
+                uptime = Math.round(uptime * 60);
+                if(uptime > 60) {
+                    uptime = Math.round(uptime * 60);
+                    uptime =+ "Hours";
+                } else { uptime =+ "Minutes"; }
+            } else { uptime =+ "Seconds"; }
             const embed = new Discord.RichEmbed()
             embed.setColor("#0fe22b");
             embed.setTitle("Space Caddie");
