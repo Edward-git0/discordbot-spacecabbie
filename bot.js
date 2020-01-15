@@ -32,6 +32,7 @@ client.on('message', message => {
     switch(command) {
         case "ping":
             const embed = client.modules.get('embed').execute();
+            message.channel.send(embed);
             client.commands.get('ping').execute(message, args, embed);
         break;
         case "avatar":
