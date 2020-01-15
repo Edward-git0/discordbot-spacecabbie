@@ -37,6 +37,9 @@ client.on('ready', () => {
     } catch(err) {
         client.channels.get('667088501895856178').send(err);
     }
+    mongoose.connect.on('err', () => {
+        client.channels.get('667088501895856178').send("Error connecting.");
+    })
 });
 
 client.on('message', message => {
