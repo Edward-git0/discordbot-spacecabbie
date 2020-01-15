@@ -42,7 +42,8 @@ client.on('message', message => {
                     "setTitle": "Title",
                     "setDescription": "Description"
                 };
-                client.commands.get('ping').execute(message, args, client.modules.get('embed').execute(embedDetails));
+                const embed = client.modules.get('embed').execute(embedDetails);
+                client.commands.get('ping').execute(message, args, embed);
             } catch(err) {
                 client.channels.get('667088501895856178').send(err);
             }
