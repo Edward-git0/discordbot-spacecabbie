@@ -35,7 +35,7 @@ client.on('message', message => {
                 "setTitle": "Title",
                 "setDescription": "Description"
             }
-            const embed = client.modules.get('embed').execute(embedDetails);
+            let embed = client.modules.get('embed').execute(embedDetails);
             client.commands.get('ping').execute(message, args, embed);
         break;
         case "avatar":
