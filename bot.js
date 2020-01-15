@@ -24,7 +24,7 @@ client.on('message', message => {
     switch(command) {
         case "ping":
             client.commands.get('ping').execute(message, args).then((msg) => {
-                msg.edit(client.ping+'\n'msg);
+                msg.edit(client.ping+'\n'+msg);
             })
         break;
         case "avatar":
