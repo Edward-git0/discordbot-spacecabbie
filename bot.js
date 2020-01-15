@@ -21,7 +21,7 @@ for (const file of moduleFiles) {
 
 client.on('ready', () => {
     console.log("Ready");
-    client.sendMessage("667088501895856178", "Ready!");
+    client.channels.get('667088501895856178').send("Ready!");
 });
 
 client.on('message', message => {
@@ -31,6 +31,12 @@ client.on('message', message => {
 
     switch(command) {
         case "ping":
+            const embedDetails = {
+                "setColor": "#0099ff",
+                "setTitle": "Title",
+                "setDescription": "Description"
+            };
+            client.commands.get('ping').execute(message, args, client.modules.get('embed').execute(embedDetails));
         break;
         case "avatar":
             client.commands.get('avatar').execute(message, args);
