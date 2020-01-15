@@ -20,6 +20,7 @@ for (const file of moduleFiles) {
 }
 
 client.on('ready', () => {
+    console.log("Ready");
     client.sendMessage("667088501895856178", "Ready!");
 });
 
