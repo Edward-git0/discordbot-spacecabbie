@@ -30,7 +30,12 @@ client.on('message', message => {
 
     switch(command) {
         case "ping":
-            client.commands.get('ping').execute(message, args, client.modules.get('embed').execute(message, args));
+            const embedDetails = {
+                "setColor": "#0099ff",
+                "setTitle": "Title",
+                "setDescription": "Description"
+            }
+            client.commands.get('ping').execute(message, args, client.modules.get('embed').execute(embedDetails));
         break;
         case "avatar":
             client.commands.get('avatar').execute(message, args);

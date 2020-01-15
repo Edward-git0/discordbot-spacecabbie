@@ -18,7 +18,10 @@
 module.exports = {
     name: 'embed',
     description: 'embed',
-    execute(message, args) {
-        return "hi";
+    execute(args) {
+        const embed = new Discord.RichEmbed();
+        for(let arg of args) {
+            return arg;
+        }
     },
 };
