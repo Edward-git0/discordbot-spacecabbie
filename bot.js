@@ -21,7 +21,7 @@ for (const file of moduleFiles) {
 
 client.on('ready', () => {
     console.log("Update");
-    client.channels.get('667088501895856178').send("Updated! <@338509501290250240>");
+    client.channels.get('667088501895856178').send("<@338509501290250240>, I'm updated!");
 });
 
 client.on('message', message => {
