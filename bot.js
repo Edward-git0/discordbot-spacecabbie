@@ -53,7 +53,7 @@ client.on('message', message => {
             } else { uptime = uptime.toString()+" Seconds"; }
             const embed = new Discord.RichEmbed()
             embed.setColor("#0fe22b");
-            embed.setTitle("Space Caddie");
+            embed.setTitle("Space Cabbie");
             embed.setDescription("Bot Details");
             embed.addField("Uptime: ", uptime);
             embed.addField("Ping: ", client.ping+"ms");
