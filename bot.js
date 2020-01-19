@@ -58,8 +58,8 @@ client.on('message', message => {
             embed.addField("Uptime: ", uptime);
             embed.addField("Ping: ", client.ping+"ms");
             embed.addField("Status", "Alive");
-            embed.setThumbnail("https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
-            embed.setFooter("Space Cabbie made by Edward", "https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.webp");
+            embed.setThumbnail("https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.png");
+            embed.setFooter("Space Cabbie made by Edward", "https://cdn.discordapp.com/avatars/667074896089579532/d8bc04cecf328a8f5516378e04d96e62.png");
 
             message.channel.send({embed});
         break;
