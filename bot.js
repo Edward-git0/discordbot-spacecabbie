@@ -19,9 +19,35 @@ for (const file of moduleFiles) {
 
 //client.mongoose = require('./utils/mongoose.js');
 
+let uptime = "";
+
+function updateUptime() {
+  uptime = client.uptime / 1000;
+  if (uptime > 60) {
+    uptime = Math.round(uptime / 60);
+    if (uptime > 60) {
+      uptime = Math.round(uptime / 60);
+      uptime = uptime.toString() + " Hours";
+    } else {
+      if (uptime == 1) {
+        uptime = uptime.toString() + " Minute";
+      } else {
+        uptime = uptime.toString() + " Minutes";
+      }
+    }
+  } else {
+    uptime = uptime.toString() + " Seconds";
+  }
+}
+
+
 client.on('ready', () => {
     console.log("Update");
     client.channels.get('667088501895856178').send("<@338509501290250240>, I'm updated!");
+ setInterval(() => {
+    updateUptime();
+        client.user.setActivity(activities_list[index], { type: indexList[index] });
+  }, 5000);
 });
 
 client.on('message', message => {
