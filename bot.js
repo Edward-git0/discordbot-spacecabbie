@@ -46,7 +46,7 @@ client.on('ready', () => {
     client.channels.get('667088501895856178').send("<@338509501290250240>, I'm updated!");
  setInterval(() => {
     updateUptime();
-        client.user.setActivity(activities_list[index], { type: indexList[index] });
+        client.user.setActivity(`for ${uptime}`, { type: "WATCHING" });
   }, 5000);
 });
 
